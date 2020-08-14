@@ -1,0 +1,2 @@
+.video-item{display:flex!important;align-items:center!important;cursor:pointer}.video-item.item img{max-width:180px}.main-div{display:flex;justify-content:space-evenly}.search-sticky{top:0;z-index:2}.search-sticky,.sticky-div{position:-webkit-sticky;position:sticky}.sticky-div{top:100px;height:100%;z-index:1;background-color:#fff}.scrollable-div,.sticky-div{padding:10px}@media screen and (max-width:600px){.row{flex-direction:column}}
+/*# sourceMappingURL=main.e746e14d.chunk.css.map */
