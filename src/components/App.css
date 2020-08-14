@@ -1,0 +1,31 @@
+.main-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search-sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.sticky-div{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    padding: 10px;
+    height: 100%;
+    z-index: 1;
+    background-color: white;
+}
+
+.scrollable-div{
+    padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+  }
