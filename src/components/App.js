@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
-import VideoList from './VideoList'
+import ListofVideo from './VideoList'
 import VideoDetails from './VideoDetails'
 import './App.css';
 
@@ -9,33 +9,33 @@ import './App.css';
 class App extends React.Component {
     state = {
         videos: [],
-        selectedVideo: null
+        videoSelect: null
     }
 
     componentDidMount() {
         // to have a default search
-        this.onTermSubmit('Alan Walker')
+        this.onSubmit('Alan Walker')
     }
 
-    onTermSubmit = async inputSearch => {
+    onSubmit = async userInput => {
         const response = await youtube.get('/search', {
             params: {
                 key: 'AIzaSyDMD99D_9ZoLEnGx_4Gsqhk4FcW9XHr1oE',
                 part: 'snippet',
-                q: inputSearch,
+                q: userInput,
                 maxResults: 15,
             }
         });
 
         this.setState({
             videos: response.data.items,
-            selectedVideo: response.data.items[1]
+            videoSelect: response.data.items[1]
         });
     };
 
-    onVideoSelect = video => {
+    onSelectVideo = video => {
         this.setState({
-            selectedVideo: video
+            videoSelect: video
         })
     }
 
@@ -43,15 +43,15 @@ class App extends React.Component {
         return (
             <div className="ui container">
                 <div className="search-sticky">
-                    <SearchBar onFormSubmit={this.onTermSubmit} />
+                    <SearchBar onFormSubmit={this.onSubmit} />
                 </div>
                 <div className="new">
                     <div className="main-div row container-fluid" >
                         <div className="col-xs-12 sticky-div">
-                            <VideoDetails video={this.state.selectedVideo} />
+                            <VideoDetails video={this.state.videoSelect} />
                         </div>
                         <div className="col-xs-12 scrollable-div">
-                            <VideoList onVideoSelect={this.onVideoSelect}
+                            <ListofVideo onSelectVideo={this.onSelectVideo}
                                 videos={this.state.videos} />
                         </div>
                     </div>
